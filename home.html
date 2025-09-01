@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropbox File Manager</title>
+</head>
+<body>
+    <h1>Your Dropbox Files</h1>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Upload</button>
+    </form>
+
+    <ul>
+        {% for file in files %}
+            <li>
+                {{ file.name }}
+                <a href="/download/{{ file.name }}">Download</a>
+                <a href="/delete/{{ file.name }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
